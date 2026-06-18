@@ -3,7 +3,85 @@
 ---
 
 <section id="hero">
-  <div class="hero-grid"></div>
+  <!-- Circuit board background -->
+  <svg class="circuit-bg" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" aria-hidden="true">
+    <defs>
+      <pattern id="circuit" x="0" y="0" width="220" height="220" patternUnits="userSpaceOnUse">
+
+        <!-- ── Traces ── -->
+        <!-- Horizontal -->
+        <line x1="0"   y1="48"  x2="65"  y2="48"  stroke="rgba(59,130,246,.22)" stroke-width="1.5"/>
+        <line x1="105" y1="48"  x2="220" y2="48"  stroke="rgba(59,130,246,.22)" stroke-width="1.5"/>
+        <line x1="0"   y1="140" x2="55"  y2="140" stroke="rgba(59,130,246,.22)" stroke-width="1.5"/>
+        <line x1="95"  y1="140" x2="160" y2="140" stroke="rgba(59,130,246,.22)" stroke-width="1.5"/>
+        <line x1="165" y1="105" x2="220" y2="105" stroke="rgba(59,130,246,.22)" stroke-width="1.5"/>
+        <line x1="0"   y1="195" x2="55"  y2="195" stroke="rgba(96,165,250,.15)" stroke-width="1.5"/>
+
+        <!-- Vertical -->
+        <line x1="65"  y1="0"   x2="65"  y2="48"  stroke="rgba(59,130,246,.22)" stroke-width="1.5"/>
+        <line x1="65"  y1="48"  x2="65"  y2="88"  stroke="rgba(59,130,246,.22)" stroke-width="1.5"/>
+        <line x1="105" y1="0"   x2="105" y2="48"  stroke="rgba(59,130,246,.22)" stroke-width="1.5"/>
+        <line x1="105" y1="88"  x2="105" y2="140" stroke="rgba(59,130,246,.22)" stroke-width="1.5"/>
+        <line x1="55"  y1="140" x2="55"  y2="220" stroke="rgba(59,130,246,.22)" stroke-width="1.5"/>
+        <line x1="160" y1="105" x2="160" y2="140" stroke="rgba(59,130,246,.22)" stroke-width="1.5"/>
+        <line x1="160" y1="140" x2="160" y2="220" stroke="rgba(59,130,246,.22)" stroke-width="1.5"/>
+        <line x1="55"  y1="0"   x2="55"  y2="48"  stroke="rgba(96,165,250,.15)" stroke-width="1.5"/>
+
+        <!-- L-bend paths -->
+        <path d="M65,88 L85,88 L85,140"  fill="none" stroke="rgba(59,130,246,.22)" stroke-width="1.5"/>
+        <path d="M85,140 L95,140"         fill="none" stroke="rgba(59,130,246,.22)" stroke-width="1.5"/>
+        <path d="M165,105 L165,48"        fill="none" stroke="rgba(96,165,250,.15)" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <path d="M55,195 L55,140"         fill="none" stroke="rgba(96,165,250,.15)" stroke-width="1.5"/>
+
+        <!-- ── Vias (junction circles) ── -->
+        <!-- Standard blue vias -->
+        <circle cx="65"  cy="48"  r="4.5" fill="rgba(3,7,18,.95)"   stroke="rgba(96,165,250,.55)" stroke-width="1.5"/>
+        <circle cx="65"  cy="48"  r="1.8" fill="rgba(96,165,250,.7)"/>
+
+        <circle cx="105" cy="48"  r="4.5" fill="rgba(3,7,18,.95)"   stroke="rgba(96,165,250,.55)" stroke-width="1.5"/>
+        <circle cx="105" cy="48"  r="1.8" fill="rgba(96,165,250,.7)"/>
+
+        <circle cx="85"  cy="140" r="4.5" fill="rgba(3,7,18,.95)"   stroke="rgba(96,165,250,.55)" stroke-width="1.5"/>
+        <circle cx="85"  cy="140" r="1.8" fill="rgba(96,165,250,.7)"/>
+
+        <circle cx="55"  cy="140" r="4.5" fill="rgba(3,7,18,.95)"   stroke="rgba(96,165,250,.55)" stroke-width="1.5"/>
+        <circle cx="55"  cy="140" r="1.8" fill="rgba(96,165,250,.7)"/>
+
+        <circle cx="160" cy="140" r="4.5" fill="rgba(3,7,18,.95)"   stroke="rgba(96,165,250,.55)" stroke-width="1.5"/>
+        <circle cx="160" cy="140" r="1.8" fill="rgba(96,165,250,.7)"/>
+
+        <!-- Cyan accent vias -->
+        <circle cx="160" cy="105" r="4.5" fill="rgba(3,7,18,.95)"   stroke="rgba(6,182,212,.6)"   stroke-width="1.5"/>
+        <circle cx="160" cy="105" r="1.8" fill="rgba(6,182,212,.75)"/>
+
+        <circle cx="55"  cy="195" r="4.5" fill="rgba(3,7,18,.95)"   stroke="rgba(6,182,212,.6)"   stroke-width="1.5"/>
+        <circle cx="55"  cy="195" r="1.8" fill="rgba(6,182,212,.75)"/>
+
+        <!-- ── Component pads / silkscreen ── -->
+        <!-- Small IC outline -->
+        <rect x="108" y="38" width="22" height="18" rx="2"
+              fill="none" stroke="rgba(59,130,246,.18)" stroke-width="1"/>
+        <!-- IC pin markers -->
+        <line x1="108" y1="43" x2="104" y2="43" stroke="rgba(59,130,246,.18)" stroke-width="1"/>
+        <line x1="108" y1="49" x2="104" y2="49" stroke="rgba(59,130,246,.18)" stroke-width="1"/>
+        <line x1="130" y1="43" x2="134" y2="43" stroke="rgba(59,130,246,.18)" stroke-width="1"/>
+        <line x1="130" y1="49" x2="134" y2="49" stroke="rgba(59,130,246,.18)" stroke-width="1"/>
+
+        <!-- SMD resistor -->
+        <rect x="68" y="132" width="14" height="7" rx="1.5"
+              fill="rgba(59,130,246,.1)" stroke="rgba(59,130,246,.2)" stroke-width="1"/>
+
+        <!-- SMD capacitor -->
+        <rect x="150" y="98" width="8" height="14" rx="1.5"
+              fill="rgba(6,182,212,.08)" stroke="rgba(6,182,212,.22)" stroke-width="1"/>
+
+        <!-- Pin 1 dot on IC -->
+        <circle cx="111" cy="42" r="1.2" fill="rgba(59,130,246,.3)"/>
+
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#circuit)"/>
+  </svg>
   <div class="hero-blob hero-blob-1"></div>
   <div class="hero-blob hero-blob-2"></div>
 
@@ -49,12 +127,9 @@
     background: var(--bg);
     padding-top: 80px;
   }
-  .hero-grid {
+  .circuit-bg {
     position: absolute; inset: 0; pointer-events: none;
-    background-image:
-      linear-gradient(rgba(96,165,250,.07) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(96,165,250,.07) 1px, transparent 1px);
-    background-size: 60px 60px;
+    opacity: .9;
   }
   .hero-blob {
     position: absolute; border-radius: 50%;
