@@ -5,17 +5,7 @@
 <nav id="navbar">
   <div class="nav-inner">
     <a class="logo-wrap" href="#hero">
-      <svg width="38" height="38" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="nav-grad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#3b82f6"/>
-            <stop offset="1" stop-color="#06b6d4"/>
-          </linearGradient>
-        </defs>
-        <rect width="40" height="40" rx="9" fill="url(#nav-grad)"/>
-        <text x="20" y="27" text-anchor="middle" fill="white" font-size="15" font-weight="700" font-family="system-ui,sans-serif">LT</text>
-      </svg>
-      <span class="logo-text">Law Technology</span>
+      <img src="/logo-banner.png" alt="Law Technology" class="logo-img" />
     </a>
 
     <div class="nav-links">
@@ -83,11 +73,8 @@
     padding: 18px 24px;
     display: flex; align-items: center; justify-content: space-between;
   }
-  .logo-wrap {
-    display: flex; align-items: center; gap: 12px;
-    text-decoration: none;
-  }
-  .logo-text { color: var(--text); font-weight: 700; font-size: 1.1rem; letter-spacing: -.3px; }
+  .logo-wrap { display: flex; align-items: center; text-decoration: none; }
+  .logo-img  { height: 36px; width: auto; display: block; }
 
   .nav-links {
     display: flex; align-items: center; gap: 32px;
