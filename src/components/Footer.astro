@@ -1,0 +1,52 @@
+---
+const year = new Date().getFullYear();
+const links = ['about', 'services', 'contact'];
+---
+
+<footer>
+  <div class="footer-inner">
+    <a class="logo-wrap" href="#hero">
+      <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="ft-grad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#3b82f6"/>
+            <stop offset="1" stop-color="#06b6d4"/>
+          </linearGradient>
+        </defs>
+        <rect width="40" height="40" rx="9" fill="url(#ft-grad)"/>
+        <text x="20" y="27" text-anchor="middle" fill="white" font-size="15" font-weight="700" font-family="system-ui,sans-serif">LT</text>
+      </svg>
+      <span class="logo-text">Law Technology</span>
+    </a>
+
+    <span class="copy">© {year} Law Technology. All rights reserved.</span>
+
+    <nav class="footer-links">
+      {links.map(l => (
+        <a href={`#${l}`}>{l}</a>
+      ))}
+    </nav>
+  </div>
+</footer>
+
+<style>
+  footer {
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    padding: 36px 24px;
+  }
+  .footer-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 20px;
+  }
+  .logo-wrap { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .logo-text  { color: var(--text); font-weight: 700; font-size: 1rem; }
+  .copy       { font-size: .85rem; color: var(--faint); }
+  .footer-links { display: flex; gap: 28px; }
+  .footer-links a {
+    font-size: .85rem; color: var(--faint);
+    text-decoration: none; transition: color .2s; text-transform: capitalize;
+  }
+  .footer-links a:hover { color: var(--muted); }
+</style>

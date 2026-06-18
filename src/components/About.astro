@@ -1,0 +1,67 @@
+---
+const stats = [
+  { value: '10+', label: 'Years Experience' },
+  { value: '50+', label: 'Happy Clients' },
+  { value: '5',   label: 'Services Offered' },
+  { value: '<24h', label: 'Response Time' },
+];
+---
+
+<section id="about">
+  <div class="container reveal">
+    <div class="about-grid">
+      <div class="about-text">
+        <p class="section-eyebrow">About Us</p>
+        <h2 class="section-title">Your local technology partner</h2>
+        <div class="about-body">
+          <p>
+            Law Technology delivers hands-on technology support to individuals and
+            small businesses. We cut through the complexity and provide practical,
+            reliable solutions — on-site or remotely.
+          </p>
+          <p>
+            Whether it's setting up new hardware, building out a professional network,
+            securing your domain, or getting your site live — we handle it cleanly
+            and keep you informed every step of the way.
+          </p>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        {stats.map(s => (
+          <div class="stat-card">
+            <div class="stat-val">{s.value}</div>
+            <div class="stat-lbl">{s.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  section { background: var(--bg2); }
+
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 64px; align-items: center;
+  }
+  .about-body {
+    color: var(--muted); font-size: 1.05rem; line-height: 1.8;
+  }
+  .about-body p + p { margin-top: 16px; }
+
+  .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .stat-card {
+    background: var(--bg3); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 28px;
+    text-align: center; transition: border-color .2s;
+  }
+  .stat-card:hover { border-color: var(--blue); }
+  .stat-val { font-size: 2.4rem; font-weight: 800; color: var(--blue-lt); }
+  .stat-lbl { font-size: .85rem; color: var(--muted); margin-top: 6px; }
+
+  @media (max-width: 700px) {
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+</style>

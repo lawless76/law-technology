@@ -1,0 +1,6 @@
+services:
+  law-technology:
+    image: ghcr.io/lawless76/law-technology:latest
+    ports:
+      - "4000:80"
+    restart: unless-stopped

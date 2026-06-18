@@ -1,0 +1,131 @@
+---
+// Navbar — no props needed
+---
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a class="logo-wrap" href="#hero">
+      <svg width="38" height="38" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="nav-grad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#3b82f6"/>
+            <stop offset="1" stop-color="#06b6d4"/>
+          </linearGradient>
+        </defs>
+        <rect width="40" height="40" rx="9" fill="url(#nav-grad)"/>
+        <text x="20" y="27" text-anchor="middle" fill="white" font-size="15" font-weight="700" font-family="system-ui,sans-serif">LT</text>
+      </svg>
+      <span class="logo-text">Law Technology</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact" class="nav-cta">Get in Touch</a>
+    </div>
+
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <svg id="ham-icon" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3 12h18M3 6h18M3 18h18"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+    <a href="#contact" class="mobile-cta">Get in Touch →</a>
+  </div>
+</nav>
+
+<script>
+  const navbar    = document.getElementById('navbar')!;
+  const hamburger = document.getElementById('hamburger')!;
+  const mobileMenu = document.getElementById('mobile-menu')!;
+  const hamIcon   = document.getElementById('ham-icon')!;
+
+  // Scroll effect
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 30);
+  });
+
+  // Hamburger toggle
+  hamburger.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('open');
+    hamIcon.innerHTML = open
+      ? '<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>'
+      : '<path stroke-linecap="round" stroke-linejoin="round" d="M3 12h18M3 6h18M3 18h18"/>';
+  });
+
+  // Close mobile menu on link click
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    hamIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M3 12h18M3 6h18M3 18h18"/>';
+  }));
+</script>
+
+<style>
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    transition: background .3s, border-color .3s, box-shadow .3s;
+    border-bottom: 1px solid transparent;
+  }
+  nav.scrolled {
+    background: rgba(3,7,18,.93);
+    border-color: var(--border);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 32px rgba(0,0,0,.4);
+  }
+  .nav-inner {
+    max-width: 1100px; margin: 0 auto;
+    padding: 18px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .logo-wrap {
+    display: flex; align-items: center; gap: 12px;
+    text-decoration: none;
+  }
+  .logo-text { color: var(--text); font-weight: 700; font-size: 1.1rem; letter-spacing: -.3px; }
+
+  .nav-links {
+    display: flex; align-items: center; gap: 32px;
+  }
+  .nav-links a {
+    color: var(--muted); text-decoration: none;
+    font-size: .9rem; font-weight: 500;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+  .nav-cta {
+    background: var(--blue); color: #fff !important;
+    padding: 10px 20px; border-radius: 12px;
+    font-size: .875rem; font-weight: 600;
+    transition: background .2s, box-shadow .2s;
+  }
+  .nav-cta:hover { background: #2563eb !important; box-shadow: 0 4px 20px rgba(59,130,246,.35); }
+
+  .hamburger {
+    display: none; background: none; border: none;
+    color: var(--muted); cursor: pointer; padding: 4px;
+  }
+  .mobile-menu {
+    display: none; flex-direction: column; gap: 20px;
+    padding: 20px 24px 24px;
+    background: rgba(3,7,18,.97);
+    border-top: 1px solid var(--border);
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    color: var(--muted); text-decoration: none;
+    font-size: .95rem; font-weight: 500;
+  }
+  .mobile-menu a:hover { color: var(--text); }
+  .mobile-cta { color: var(--blue-lt) !important; font-weight: 700; }
+
+  @media (max-width: 700px) {
+    .nav-links { display: none; }
+    .hamburger { display: block; }
+  }
+</style>

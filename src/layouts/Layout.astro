@@ -1,0 +1,124 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Law Technology — Technology Solutions',
+  description = 'Law Technology provides expert technology solutions — hardware installation, UniFi networking, domain setup, Cloudflare, ProtonMail, and website assistance.',
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+</head>
+<body>
+  <slot />
+</body>
+</html>
+
+<style is:global>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:      #030712;
+    --bg2:     #0f172a;
+    --bg3:     #111827;
+    --border:  #1f2937;
+    --border2: #374151;
+    --blue:    #3b82f6;
+    --blue-lt: #60a5fa;
+    --cyan:    #06b6d4;
+    --text:    #f1f5f9;
+    --muted:   #94a3b8;
+    --faint:   #4b5563;
+    --radius:  16px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Reveal animation ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .6s ease, transform .6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ── Shared section styles ── */
+  section { padding: 96px 24px; }
+  .container { max-width: 1100px; margin: 0 auto; }
+
+  .section-eyebrow {
+    font-size: .75rem;
+    font-weight: 600;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--blue-lt);
+    margin-bottom: 14px;
+  }
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.15;
+    color: var(--text);
+    margin-bottom: 16px;
+  }
+  .section-sub {
+    color: var(--muted);
+    font-size: 1.1rem;
+    max-width: 520px;
+    line-height: 1.7;
+  }
+  .text-center { text-align: center; }
+  .text-center .section-sub { margin: 0 auto; }
+
+  /* ── Buttons ── */
+  .btn-primary {
+    background: var(--blue);
+    color: #fff;
+    padding: 16px 36px;
+    border-radius: 14px;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: background .2s, transform .15s, box-shadow .2s;
+    box-shadow: 0 4px 24px rgba(59,130,246,.35);
+  }
+  .btn-primary:hover {
+    background: #2563eb;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 32px rgba(59,130,246,.45);
+  }
+  .btn-ghost {
+    background: transparent;
+    color: var(--muted);
+    padding: 16px 36px;
+    border-radius: 14px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: 1px solid var(--border2);
+    cursor: pointer;
+    transition: color .2s, border-color .2s;
+  }
+  .btn-ghost:hover { color: var(--text); border-color: var(--muted); }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .spinner { animation: spin .8s linear infinite; }
+</style>
