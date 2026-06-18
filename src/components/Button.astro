@@ -1,0 +1,60 @@
+---
+const { href = "#", variant = "primary", label } = Astro.props;
+---
+
+{href}
+  {label}
+</a>
+
+<style>
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    padding: 14px 26px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    transition: all 0.25s ease;
+    text-decoration: none;
+  }
+
+  /* PRIMARY (Get In Touch / View Services) */
+  .primary {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: white;
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.35);
+  }
+
+  .primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(59, 130, 246, 0.6);
+  }
+
+  /* SECONDARY (Contact Us outline style) */
+  .secondary {
+    background: rgba(255, 255, 255, 0.02);
+    color: #cbd5f5;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(6px);
+  }
+
+  .secondary:hover {
+    border-color: #3b82f6;
+    color: #3b82f6;
+    background: rgba(59, 130, 246, 0.08);
+  }
+
+  /* GLOW BUTTON (optional fancy variant) */
+  .glow {
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 198, 255, 0.4),
+                0 0 20px rgba(0, 198, 255, 0.25);
+  }
+
+  .glow:hover {
+    box-shadow: 0 0 20px rgba(0, 198, 255, 0.8),
+                0 0 40px rgba(0, 198, 255, 0.6);
+  }
+</style>
