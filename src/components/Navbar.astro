@@ -73,8 +73,8 @@
     padding: 18px 24px;
     display: flex; align-items: center; justify-content: space-between;
   }
-  .logo-wrap { display: flex; align-items: center; text-decoration: none; }
-  .logo-img  { height: 72px; width: auto; display: block; }
+  .logo-wrap { display: flex; align-items: center; text-decoration: none; min-width: 0; }
+  .logo-img  { height: 72px; width: auto; display: block; max-width: 100%; }
 
   .nav-links {
     display: flex; align-items: center; gap: 32px;
@@ -96,6 +96,7 @@
   .hamburger {
     display: none; background: none; border: none;
     color: var(--muted); cursor: pointer; padding: 4px;
+    flex-shrink: 0;
   }
   .mobile-menu {
     display: none; flex-direction: column; gap: 20px;
@@ -114,5 +115,6 @@
   @media (max-width: 700px) {
     .nav-links { display: none; }
     .hamburger { display: block; }
+    .logo-img  { height: 50px; max-width: calc(100vw - 80px); object-fit: contain; object-position: left; }
   }
 </style>
