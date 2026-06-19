@@ -12,7 +12,7 @@ const stats = [
     <div class="about-grid">
       <div class="about-text">
         <p class="section-eyebrow">About Law Technology Us</p>
-        <h3 class="section-title">Your local technology partner</h3>
+        <img src="/about-heading.png" alt="Your local technology partner" class="about-heading-img" />
         <div class="about-body">
           <p>
             Law Technology delivers hands-on technology support to individuals and
@@ -45,6 +45,10 @@ const stats = [
   .about-grid {
     display: grid; grid-template-columns: 1fr 1fr;
     gap: 64px; align-items: center;
+  }
+  .about-heading-img {
+    max-width: 100%; width: 480px; height: auto;
+    display: block; margin-bottom: 20px;
   }
   .about-body {
     color: var(--muted); font-size: 1.05rem; line-height: 1.8;
