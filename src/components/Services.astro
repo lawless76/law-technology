@@ -27,7 +27,7 @@ const services = [
   },
   {
     title: 'Local Storage Solutions',
-    desc: 'Experience in TrueNAS and Synology NAS storage solutions. I can assist with the configuration and setup of any solution you may be looking for.',
+    desc: 'Experience in TrueNAS and Synology NAS storage solutions. We can assist with the configuration and setup of any solution you may be looking for.',
     icon: `<ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 5v6c0 1.66-4 3-9 3s-9-1.34-9-3V5"/><path d="M3 11v6c0 1.66 4 3 9 3s9-1.34 9-3v-6"/>`,
   },
 ];
@@ -100,16 +100,17 @@ const services = [
   .cta-card {
     background: linear-gradient(135deg, #1d4ed8, #0891b2);
     border-radius: var(--radius); padding: 32px;
-    display: flex; flex-direction: column; justify-content: space-between;
+    display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 24px;
+    grid-column: 1 / -1;
   }
   .cta-title { font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 10px; }
   .cta-body  { font-size: .875rem; color: rgba(255,255,255,.8); line-height: 1.75; }
   .cta-btn {
-    display: inline-block; margin-top: 24px;
+    display: inline-block; flex-shrink: 0; margin-top: 0;
     background: #fff; color: #1d4ed8;
-    padding: 10px 20px; border-radius: 10px;
+    padding: 12px 28px; border-radius: 10px;
     font-size: .875rem; font-weight: 700; border: none; cursor: pointer;
-    transition: background .2s; align-self: flex-start;
+    transition: background .2s; white-space: nowrap;
   }
   .cta-btn:hover { background: #eff6ff; }
 
