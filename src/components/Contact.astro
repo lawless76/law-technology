@@ -1,7 +1,7 @@
 ---
 // Contact section — form submission uses Formspree
 // Replace YOUR_FORM_ID below with your ID from https://formspree.io
-const FORMSPREE_ID = 'YOUR_FORM_ID';
+const FORMSPREE_ID = 'mlgyeern';
 
 const details = [
   { emoji: '📍', label: 'Location',      value: 'Available locally & remotely' },
@@ -134,16 +134,11 @@ const serviceOptions = [
     spinner.style.display   = 'block';
 
     try {
-      if (FORMSPREE_ID !== 'mlgyeern') {
-        await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, email, service, message: msg }),
-        });
-      } else {
-        // Simulate for local dev — replace FORMSPREE_ID when ready
-        await new Promise(r => setTimeout(r, 900));
-      }
+      await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, service, message: msg }),
+      });
     } catch (_) {
       // silently fall through to success in dev
     }
