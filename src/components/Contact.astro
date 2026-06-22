@@ -93,6 +93,7 @@ const serviceOptions = [
             </div>
             <div class="success-title">Message Sent!</div>
             <div class="success-body">Thanks for reaching out — we'll get back to you within 24 hours.</div>
+            <button class="success-ok" id="success-ok">Send Another Message</button>
           </div>
         </div>
       </div>
@@ -143,9 +144,26 @@ const serviceOptions = [
       // silently fall through to success in dev
     }
 
+    form.reset();
     form.style.display = 'none';
     successMsg.style.display = 'block';
+
+    // Auto-reset after 10 seconds
+    const autoReset = setTimeout(resetToForm, 10000);
+
+    document.getElementById('success-ok')?.addEventListener('click', () => {
+      clearTimeout(autoReset);
+      resetToForm();
+    }, { once: true });
   });
+
+  function resetToForm() {
+    successMsg.style.display = 'none';
+    form.style.display = 'block';
+    submitBtn.disabled = false;
+    submitLabel.textContent = 'Send Message';
+    spinner.style.display = 'none';
+  }
 </script>
 
 <style>
@@ -212,7 +230,15 @@ const serviceOptions = [
     margin: 0 auto 20px;
   }
   .success-title { font-size: 1.6rem; font-weight: 800; margin-bottom: 10px; }
-  .success-body  { color: var(--muted); }
+  .success-body  { color: var(--muted); margin-bottom: 24px; }
+  .success-ok {
+    margin-top: 4px; padding: 12px 28px;
+    background: transparent; border: 1px solid var(--border2);
+    border-radius: 10px; color: var(--muted);
+    font-size: .9rem; font-weight: 600; cursor: pointer;
+    transition: color .2s, border-color .2s;
+  }
+  .success-ok:hover { color: var(--text); border-color: var(--muted); }
 
   @media (max-width: 700px) { .contact-grid { grid-template-columns: 1fr; gap: 40px; } }
 </style>
